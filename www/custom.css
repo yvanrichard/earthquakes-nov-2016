@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css?family=Asap|Open+Sans");
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Asap", serif;
+}
+
+.sidebar .shiny-input-container {
+    padding: 50px 5px 5px 5px;
+    white-space: normal;
+}
+
+.selectize-control {
+    margin-bottom: 2px;
+    margin-left: 2px;
+}
+
+.h6 {
+  font-family: "Asap", serif;
+  font-weight: 500;
+  color: #2d2d2d;
+}
+h6,
+.h6 {
+  font-family: "Asap", serif;
+  font-weight: 500;
+  color: #2d2d2d;
+  font-size: 14px;
+}
+.h5, h5 {
+    font-size: 12px;
+}
+
+body {
+  font-family: "Asap", serif;
+}    
+
+.main-header .logo {
+      font-family: "Asap", serif;
+      text-shadow: 2px 2px 2px #222;
+      font-weight: bold;
+      padding-left: 0px;
+      padding-right: 0px;
+      align: center;
+}
+
+.control-label {
+    font-family: "Asap", serif;
+}
+
+.form-group {
+    margin-bottom: 6px;
+}
+
+.h4, h4 {
+    font-size: 16px;
+    color: #FDD49E;
+    text-align: bottom;
+    font-weight: bold;
+    position: relative;
+    bottom: -10px;
+}
+
+
+.h5, h5 {
+    font-size: 16px;
+    text-align: bottom;
+    position: relative;
+}
+
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+							color: #fff;
+							background-color: #2B8CBE;
+							border: 1px solid #aaa;
+						    }
+
+
+img {
+    border: 1;
+    max-width: 100%;
+}
+element.style {
+    width: 33.33%;
+}
+
+.col-sm-6 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.col-sm-3 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.col-sm-12 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.col-sm-11 {
+    padding-left: 2px;
+    padding-right: 2px;
+}
