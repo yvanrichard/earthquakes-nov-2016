@@ -35,6 +35,14 @@ shinyServer(function(input, output, session) {
 ## UI elements ##
 #################
 
+    output$start_date <- renderUI({
+        dateInput('start_date', label = 'Start date', value = '2016-11-14')
+    })
+    
+    output$end_date <- renderUI({
+        dateInput('end_date', label = 'End date', value = '2016-11-14')
+    })
+    
     output$mag_sel <- renderUI({
         sI <- sliderInput("mag_sel", label = 'Magnitude',
                          min = floor(min(quakedata$quakes$magnitude)*10)/10,
@@ -284,7 +292,14 @@ shinyServer(function(input, output, session) {
 
     observeEvent(input$updatedata, {
         ## Download data from GeoNet
-        allquakes <- suppressWarnings(fread('http://quakesearch.geonet.org.nz/csv?startdate=2016-11-13T11:00:00&enddate=2020-11-13T11:00:00'))
+        startdate <- with_tz(as.POSIXct(sprintf('%s 00:00:00', input$start_date), format = '%Y-%m-%d %H:%M:%S',
+                                       tz='NZ'), 'UTC')
+        enddate <- with_tz(as.POSIXct(sprintf('%s 23:59:59', input$end_date), format = '%Y-%m-%d %H:%M:%S',
+                                       tz='NZ'), 'UTC')
+        allquakes <- suppressWarnings(fread(sprintf(
+                        'http://quakesearch.geonet.org.nz/csv?startdate=%s&enddate=%s',
+                        format(startdate, '%Y-%m-%dT%H:%M:%S'),
+                        format(enddate, '%Y-%m-%dT%H:%M:%S'))))
 
         allquakes[longitude < 0, longitude := longitude + 360]
         allquakes[, datetime := as.POSIXct(origintime, tz = 'UTC')]

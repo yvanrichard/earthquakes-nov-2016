@@ -46,13 +46,14 @@ function(request) {
         sidebar = dashboardSidebar(
                       tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "custom.css")),
                       h6(),
+                      uiOutput('start_date'),
+                      uiOutput('end_date'),
+                      actionButton("updatedata", "Download updated data"),
+                      hr(),
                       uiOutput('mag_sel'),
                       uiOutput('depth_sel'),
                       uiOutput('time_sel'),
-                      uiOutput('map_colour'),
-                      hr(),
-                      actionButton("updatedata", "Download updated data")
-
+                      uiOutput('map_colour')
                   ),
 
         body = dashboardBody(
@@ -83,7 +84,13 @@ function(request) {
                                        plotOutput("densplot_mag", width = '100%', height = '200px'),
                                        plotOutput("densplot_depth", width = '100%', height = '200px')
                                        ))
-                            )
+                            ),
+                   br(),
+                   wellPanel(
+                       fluidRow(column(8, 
+                                       p('Made by YR thanks to the data available from', a('GeoNet', href = 'http://www.geonet.org.nz/'))
+                                       ))
+                   )
                )
     )
 }
